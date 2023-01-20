@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MakeItWork</string>
+    <string name="hand_bag">HandBag</string>
+    <string name="jewellery">Jewellery</string>
+    <string name="footwear">Footwear</string>
+    <string name="dresses">Dresses</string>
+</resources>
