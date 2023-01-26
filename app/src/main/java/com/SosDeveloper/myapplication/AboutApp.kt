@@ -6,7 +6,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun AboutApp(navController: NavHostController) {
     Column {
+        val color= Color(0xFF1976D2)
 
 
         Column(
@@ -32,16 +33,19 @@ fun AboutApp(navController: NavHostController) {
         ) {
 
 
-            TopAppBar(backgroundColor = Color.White) {
+            TopAppBar(backgroundColor = color) {
+
+                IconButton(onClick = { navController.navigate("Dashboard") }) {
+                    Icon(Icons.Filled.ArrowBack, "BackIcon", tint = Color.White)
+                }
+
                 Text(
                     text = "About Developer",
-                    color = Color.Blue,
-                    modifier = Modifier.padding(start = 90.dp,end = 50.dp)
+                    color = Color.White,
+                    modifier = Modifier.padding(start = 60.dp)
 
                 )
-                IconButton(onClick = { navController.navigate("Dashboard") }) {
-                    Icon(Icons.Filled.ArrowForward, "BackIcon", tint = Color.Blue)
-                }
+
             }
 
 

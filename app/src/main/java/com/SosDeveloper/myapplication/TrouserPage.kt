@@ -29,7 +29,8 @@ import com.SosDeveloper.myapplication.ui.theme.Purple500
 
 @Composable
 fun TrouserPage(navController: NavHostController) {
-    val colored = Purple500
+    val color= Color(0xFF1976D2)
+
     Column {
         Image(painter = painterResource(id = R.drawable.rr4),
             contentDescription = "background",
@@ -40,7 +41,7 @@ fun TrouserPage(navController: NavHostController) {
     }
     Column {
 
-        TopAppBar(backgroundColor = colored) {
+        TopAppBar(backgroundColor = color) {
             Text(
                 text = "Men_Wear.\t\tDesigner Trousers",
                 fontSize = 16.sp,

@@ -3,12 +3,14 @@ package com.SosDeveloper.myapplication
 
 import android.content.Intent
 import android.net.Uri
+import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.ButtonDefaults.elevation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
@@ -27,22 +29,25 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.SosDeveloper.myapplication.ui.theme.Purple500
+import kotlin.text.Typography
 
 @Composable
 fun ShoesPage(navController: NavHostController){
-    val colored = Purple500
+    val color= Color(0xFF1976D2)
     Column {
         Image(painter = painterResource(id = R.drawable.rr1),
             contentDescription = "Background",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier
+                .fillMaxHeight()
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(10.dp))
         )
     }
-    TopAppBar(backgroundColor = colored) {
+    TopAppBar(backgroundColor = color) {
         Text(
             text = "Men Shoes",
+            style = MaterialTheme.typography.h1,
             fontSize = 14.sp,
             color = Color.White,
             modifier = Modifier.padding(start = 50.dp, end = 140.dp)
@@ -63,13 +68,25 @@ Row(Modifier.padding(start = 20.dp,top= 60.dp), horizontalArrangement = Arrangem
     val rubberShoe = remember { Intent(Intent.ACTION_VIEW, Uri.parse("https://www.jumia.co.ke/catalog/?q=rubber+shoes+for+mens")) }
 
     Button(onClick = { context.startActivity(officialShoe) }) {
-        Text(text = "Officials", fontSize = 16.sp, color = Color.White)
+        Text(text = "Officials", fontSize = 16.sp, color = Color.White,
+            style = MaterialTheme.typography.button
+
+        )
     }
-    Button(onClick = { context.startActivity(intent) }) {
-        Text(text = "Shoe Store", fontSize = 16.sp, color = Color.White)
+
+
+    Button(onClick = {
+
+        context.startActivity(intent) }) {
+        Text(text = "Shoe Store", fontSize = 16.sp, color = Color.White,
+            style = MaterialTheme.typography.button
+
+        )
     }
     Button(onClick = { context.startActivity(rubberShoe) }) {
-        Text(text = "Rubbers", fontSize = 16.sp, color = Color.White)
+        Text(text = "Rubbers", fontSize = 16.sp, color = Color.White,
+        style = MaterialTheme.typography.button
+            )
     }
 }
        LazyColumn(modifier = Modifier.padding(start = 5.dp),content =

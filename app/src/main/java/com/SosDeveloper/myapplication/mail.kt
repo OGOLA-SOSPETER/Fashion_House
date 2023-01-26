@@ -5,9 +5,10 @@ import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
 import android.widget.TextView
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -72,7 +73,7 @@ fun FaceBookPage(navController: NavHostController){
 
 
 @Composable
-fun openEmailer() {
+fun openEmailer(navController: NavHostController) {
 
     // in the below line, we are
     // creating variables for URL
@@ -233,7 +234,20 @@ fun openEmailer() {
                 fontSize = 15.sp
             )
         }
-    }
+        val materialBlue700 = Color(0xFF1976D2)
+        BottomAppBar(backgroundColor = materialBlue700) {
+            IconButton(onClick = { navController.previousBackStackEntry }) {
+                Icon(Icons.Default.ArrowBack,
+                    contentDescription = "Back to homepage",
+                    tint = Color.White)
+            }
+            Spacer(modifier = Modifier.width(130.dp))
+            IconButton(onClick = { navController.navigate("Dashboard") }) {
+                Icon(Icons.Default.Home,
+                    contentDescription = "Back to homepage",
+                    tint = Color.White)
+            } } }
+
 
 //Another.
     val annotatedLinkString = buildAnnotatedString {

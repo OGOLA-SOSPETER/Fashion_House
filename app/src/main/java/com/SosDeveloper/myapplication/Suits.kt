@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,20 +33,38 @@ fun SuitsPage(navController: NavHostController) {
         Image(painter = painterResource(id = R.drawable.rr1),
             contentDescription = "background",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxHeight().fillMaxWidth()
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth()
                 .clip(RoundedCornerShape(1.dp))
         )
     }
     Column {
         Column {
-            val colored = Purple500
-            BottomAppBar(backgroundColor = colored) {
-                IconButton(onClick = { }) {
-                    Icon(Icons.Filled.Favorite,
-                        contentDescription = "Favourites",
-                        Modifier.size(20.dp),
-                        tint = Color.White
-                    )
+            val color= Color(0xFF1976D2)
+            var count = remember {mutableStateOf(0)}
+            BottomAppBar(backgroundColor = color) {
+                IconButton(onClick = {
+                    run{
+                            count.value +=1
+
+                    }
+                }) {
+                    Row(horizontalArrangement = Arrangement.End) {
+                        Icon(Icons.Filled.Favorite,
+                            contentDescription = "Favourites",
+                            Modifier.size(30.dp),
+                            tint = Color.White,
+
+                        )
+                        Text(
+                            text = count.value.toString(),
+                            fontSize = 17.sp,
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.offset(5.dp,2.dp)
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.width(120.dp))
                 IconButton(onClick = { navController.navigate("Dashboard") }) {
@@ -85,7 +104,8 @@ Column(Modifier.offset(15.dp)) {
             Text(
                 "My suits wardrobe",
                 fontWeight = FontWeight.Bold, fontSize = 20.sp,
-                modifier = Modifier.offset(50.dp, 3.dp)
+                modifier = Modifier
+                    .offset(50.dp, 3.dp)
                     .padding(bottom = 5.dp)
             )
             Text("A suit, lounge suit, or business suit is a set of clothes " +

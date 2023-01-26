@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -41,20 +42,24 @@ fun Briefcase(navController:  NavHostController){
 
         )
     }
-    val colored = Purple500;
+    val color= Color(0xFF1976D2)
+
     Column{
-        TopAppBar(backgroundColor =colored) {
+        TopAppBar(backgroundColor =color) {
+
+            IconButton(onClick = { navController.navigate("Dashboard") }) {
+                Icon(Icons.Default.ArrowBack, contentDescription = "Back to homepage",tint = Color.White)
+            }
+
             Text(
                 text = "Travel Suitcases",
                 fontFamily = FontFamily.Monospace,
                 fontSize = 16.sp,
                 color = Color.White,
-                modifier = Modifier.padding(start = 50.dp,end = 140.dp)
+                modifier = Modifier.padding(start = 60.dp)
 
             )
-            IconButton(onClick = { navController.navigate("Dashboard") }) {
-                Icon(Icons.Default.ArrowForward, contentDescription = "Back to homepage",tint = Color.White)
-            }
+
         }
 
 LazyVerticalGrid(columns = GridCells.Adaptive(100.dp),
@@ -281,6 +286,59 @@ LazyVerticalGrid(columns = GridCells.Adaptive(100.dp),
         }
 
 
+        item {
+            Box(Modifier.padding(end = 2.dp, start = 1.dp)) {
+                Column {
+                    Image(painter = painterResource(id = R.drawable.bag1),
+                        contentDescription = "suitcases",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .clip(RoundedCornerShape(1.dp)))
+                    Text(text = "Pioneer Brown Leather",
+                        fontSize = 10.sp,
+                        modifier = Modifier.padding(start = 1.dp))
+                    Text(text = "Kshs.4800", modifier = Modifier.padding(start = 3.dp))
+                }
+            }
+
+        }
+
+        item {
+            Box(Modifier.padding(end = 2.dp, start = 1.dp)) {
+                Column {
+                    Image(painter = painterResource(id = R.drawable.bag2),
+                        contentDescription = "suitcases",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .clip(RoundedCornerShape(1.dp)))
+                    Text(text = "Executive Pvc Suitcase",
+                        fontSize = 10.sp,
+                        modifier = Modifier.padding(start = 1.dp))
+                    Text(text = "Kshs.5342", modifier = Modifier.padding(start = 3.dp))
+                }
+            }
+
+        }
+
+        item {
+            Box(Modifier.padding(end = 2.dp, start = 1.dp)) {
+                Column {
+                    Image(painter = painterResource(id = R.drawable.bag3),
+                        contentDescription = "suitcases",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .clip(RoundedCornerShape(1.dp)))
+                    Text(text = "Pioneer PU Pioneer Leather Suitcase",
+                        fontSize = 10.sp,
+                        modifier = Modifier.padding(start = 1.dp))
+                    Text(text = "Kshs.4897", modifier = Modifier.padding(start = 3.dp))
+                }
+            }
+
+        }
 
 
 

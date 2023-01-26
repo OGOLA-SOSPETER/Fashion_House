@@ -37,9 +37,10 @@ fun HandbagPage(navController: NavHostController){
 
         )
     }
-val colored = Purple500
+    val color= Color(0xFF1976D2)
+
     Column {
-        TopAppBar(backgroundColor = colored) {
+        TopAppBar(backgroundColor = color) {
             Text(
                 text = "BackPacks",
                 fontSize = 14.sp,

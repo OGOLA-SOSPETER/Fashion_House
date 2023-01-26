@@ -12,7 +12,7 @@ fun AppNavigation(navController: NavHostController) {
     {
 
         composable("Login"){ LoginPage(navController)}
-        composable("Dashboard"){ MainPage(navController)}
+        composable("Dashboard"){ Scaffolld(navController) }
         composable("welcome"){ WelcomePage(navController)}
         composable("settings"){ SettingsPage(navController) }
         composable("About"){ AboutApp(navController) }
@@ -20,12 +20,12 @@ fun AppNavigation(navController: NavHostController) {
         composable("FaceBook"){ FaceBookPage(navController) }
         composable("shirts"){ ShirtsPage(navController)}
         composable("trousers"){TrouserPage(navController)}
-        composable("footwear"){ FullWear(navController)}
+        composable("footwear"){ FootWear(navController)}
         composable("briefcases"){ Briefcase(navController) }
         composable("bedding"){ BeddingPage(navController )}
         composable("heels"){ HeelsPage(navController ) }
         composable("handbag"){ HandbagPage(navController)}
-        composable("belt"){ BeltPage(navController)}
+        composable("belt"){ ScaffoldDemo(navController) }
         composable("shoes"){ ShoesPage(navController )}
         composable("suits"){ SuitsPage(navController )}
     }

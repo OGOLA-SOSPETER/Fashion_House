@@ -782,8 +782,8 @@ Spacer(modifier = Modifier.height(10.dp))
         })
 
 Divider(modifier = Modifier
-.width(550.dp)
-.padding(top = 10.dp, start = 10.dp), color = Color.LightGray)
+    .width(550.dp)
+    .padding(top = 10.dp, start = 10.dp), color = Color.LightGray)
 
 
     Row {
@@ -966,7 +966,7 @@ Divider(modifier = Modifier
 
         }
     )
-
+Spacer(modifier = Modifier.height(40.dp))
 
 
 }

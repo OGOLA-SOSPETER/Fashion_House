@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Wardrobe(){
-    Column {
+
         Image(painter = painterResource(id = R.drawable.rr4),
             contentDescription = "background",
             contentScale = ContentScale.Crop,
@@ -28,7 +28,7 @@ fun Wardrobe(){
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(1.dp))
         )
-    }
+
     Column(modifier = Modifier.padding(start = 20.dp, top = 5.dp)){
         Box (modifier = Modifier.border(width = 3.dp, color = Color.Blue)){
         Text("Select your most prefered item from the Closet:")

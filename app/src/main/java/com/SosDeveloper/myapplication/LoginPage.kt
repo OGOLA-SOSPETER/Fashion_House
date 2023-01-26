@@ -78,7 +78,7 @@ Column() {
             contentDescription = "LoginImage",
             contentScale = ContentScale.Crop,
             modifier = Modifier.size(100.dp)
-                .clip(RoundedCornerShape(13.dp))
+                .clip(CircleShape)
         )
         Spacer(modifier = Modifier.height( 30.dp))
         OutlinedTextField(

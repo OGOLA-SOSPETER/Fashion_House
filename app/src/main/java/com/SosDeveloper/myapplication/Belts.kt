@@ -1,16 +1,18 @@
 package com.SosDeveloper.myapplication
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,33 +26,54 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.SosDeveloper.myapplication.ui.theme.Purple500
 
+
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun BeltPage(navController: NavHostController){
-    val colored = Purple500
-    Column {
-        Image(painter = painterResource(id = R.drawable.rr1),
-            contentDescription = "background",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxHeight().fillMaxWidth()
-                .clip(RoundedCornerShape(1.dp))
-        )
-    }
-    Column {
-        TopAppBar(backgroundColor = colored) {
+fun ScaffoldDemo(navController: NavHostController) {
+    val materialBlue700= Color(0xFF1976D2)
+    val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Open))
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = { TopAppBar(title = {
+            IconButton(onClick = { navController.navigate("Dashboard") }) {
+                Icon(Icons.Default.ArrowBack,
+                    contentDescription = "Back to homepage",
+                    tint = Color.White)
+            }
             Text(
                 text = "Men's Waist Belt",
                 fontSize = 14.sp,
                 color = Color.White,
                 modifier = Modifier.padding(start = 50.dp, end = 140.dp)
 
+            ) }, elevation = 7.dp,backgroundColor = materialBlue700)  },
+        floatingActionButtonPosition = FabPosition.End,
+        floatingActionButton = { FloatingActionButton(onClick = {}){
+            Icon(
+                Icons.Filled.Add, contentDescription = "Add Page",
+                tint = Color.White
             )
-            IconButton(onClick = { navController.navigate("Dashboard") }) {
-                Icon(Icons.Default.ArrowForward,
-                    contentDescription = "Back to homepage",
-                    tint = Color.White)
-            }
-        }
+        } },
 
+        content = {Modifier.padding(top = 34.dp)
+            BeltPage(navController = rememberNavController())
+             },
+
+    )
+}
+@Composable
+fun BeltPage(navController: NavHostController){
+    Column {
+        Image(painter = painterResource(id = R.drawable.rr1),
+            contentDescription = "background",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(1.dp))
+        )
+    }
+    Column {
         LazyVerticalGrid(modifier = Modifier.padding(start = 20.dp), columns = GridCells.Adaptive(100.dp), content =
         {
             item {
@@ -352,6 +375,7 @@ fun BeltPage(navController: NavHostController){
 @Preview
 @Composable
 fun Review(){
-    BeltPage(navController = rememberNavController())
+    ScaffoldDemo(navController = rememberNavController())
 }
+
 
